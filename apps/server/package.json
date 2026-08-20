@@ -1,0 +1,22 @@
+{
+  "name": "@wh/server",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "doctor": "tsx src/doctor.ts",
+    "bundle": "node bundle.mjs"
+  },
+  "dependencies": {
+    "@wh/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "esbuild": "^0.25.0"
+  }
+}

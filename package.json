@@ -1,0 +1,31 @@
+{
+  "name": "warhammer-companion",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "pnpm@10.13.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "pnpm -r --filter @wh/core build && pnpm -r --filter @wh/server build",
+    "dev": "concurrently -n core,server,ui -c cyan,magenta,green \"pnpm -F @wh/core dev\" \"pnpm -F @wh/server dev\" \"pnpm -F @wh/desktop dev\"",
+    "dev:server": "pnpm -F @wh/server dev",
+    "dev:ui": "pnpm -F @wh/desktop dev",
+    "check": "pnpm --filter @wh/server run doctor",
+    "tauri": "pnpm -F @wh/desktop tauri",
+    "desktop": "pnpm -F @wh/desktop tauri dev",
+    "test": "pnpm -F @wh/core test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "esbuild"
+    ]
+  }
+}
